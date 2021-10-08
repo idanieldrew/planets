@@ -1,4 +1,4 @@
-# games
+# planets
 
 ## Build Setup
 
