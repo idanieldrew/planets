@@ -1,34 +1,29 @@
 <template>
   <div>
-    <div class="container">
-      {{ post.title }}
-      {{ post.body }}
-      <img class="object-cover" src="@/static/Images/MainHero.jpg" alt="" />
-    </div>
+    <Single :title="allPlanets.title" :description="allPlanets.description"
+            :image="allPlanets.image"/>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+
+import {mapActions, mapGetters} from "vuex"
+import Single from "../../components/Planet/Single";
 
 export default {
-  data() {
-    return {
-      post: [],
-    };
+  components: {
+    Single
   },
-
   methods: {
-    async FetchPost() {
-      let response = await axios.get(
-        `https://jsonplaceholder.typicode.com/posts/${this.$route.params.id}`
-      );
-      this.post = response.data;
-    },
+    ...mapActions("post", ["fetchPlanet"]),
   },
 
   mounted() {
-    this.FetchPost();
+    this.fetchPlanet(this.$route.params.slug)
+  },
+
+  computed: {
+    ...mapGetters("post", ["allPlanets"]),
   },
 };
 </script>

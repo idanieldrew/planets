@@ -15,9 +15,14 @@ const mutations = {
 }
 
 const actions = {
-  async fetchPlanets({ commit }) {
-    let response = await axios.get(process.env.baseUrl + '/planets')
+  async fetchPlanets({commit}) {
+    let response = await axios.get(process.env.baseUrl)
     commit('GET_Planets', response.data)
+  },
+
+  async fetchPlanet(VuexContext, slug) {
+    let response = await axios.get(process.env.baseUrl + '/' + slug)
+    VuexContext.commit('GET_Planets', response.data)
   }
 }
 

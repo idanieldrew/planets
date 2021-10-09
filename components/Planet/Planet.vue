@@ -11,7 +11,7 @@
       "
     >
       <div class="flex justify-center mt-2">
-        <img class="w-11/12 rounded-full" :src="planetImage" alt="" />
+        <img class="w-11/12 rounded-full" :src="planetImage" loading="lazy" :alt="planetTitle"/>
       </div>
 
       <div class="px-3 py-5 font-extrabold">

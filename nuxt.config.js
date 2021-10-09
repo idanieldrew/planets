@@ -60,6 +60,6 @@ export default {
   },
 
   env: {
-    baseUrl: process.env.BASE_URL || 'https://api.nuxtjs.dev'
+    baseUrl: process.env.BASE_URL || 'https://api.nuxtjs.dev/planets'
   }
 }
